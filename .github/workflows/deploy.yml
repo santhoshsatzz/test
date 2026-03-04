@@ -11,20 +11,20 @@ on:
 jobs:
   prod-deploy:
   if: github.ref == 'refs/heads/prod'
-  runs-on:
+  runs-on: ubuntu-latest
   steps:
     - name: checkout code
-      uses:
+      uses: actions/checkout@v4
     - name: Prod message
       run: |
         echo "doing the cahnges in live prod"
 
   QA-deploy:
   if: github.ref == 'refs/heads/QA'
-  runs-on:
+  runs-on: ubuntu-latest
   steps:
     - name: checkout code
-      uses:
+      uses: actions/checkout@v4
     - name: QA message
       run: |
         echo "doing the changes in  QA"
