@@ -14,6 +14,20 @@ jobs:
   steps:
     - name: checkout code
       uses: actions/checkout@v4
-    - name: Prod message
+
+    - name: Execute Branch Logic
       run: |
-        echo "doing the cahnges in live prod"
+          case "${{ github.ref_name }}" in
+            "prod")
+              echo " Deploying to PRODUCTION"
+              ;;
+            "qa")
+              echo " Deploying to QA"
+              ;;
+            "test")
+              echo " Deploying to TEST"
+              ;;
+            "dev")
+              echo " Deploying to DEV"
+              ;;
+          esac
