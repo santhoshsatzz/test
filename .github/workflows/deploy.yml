@@ -1,4 +1,4 @@
-name: multi-branch
+name: Multi-Branch Environment Workflow
 
 on:
   push:
@@ -9,14 +9,14 @@ on:
       - test
 
 jobs:
- deploy:
-  runs-on: ubuntu-latest
-  steps:
-    - name: checkout code
-      uses: actions/checkout@v4
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Execute Branch Logic
-      run: |
+      - name: Execute Branch Logic
+        run: |
           case "${{ github.ref_name }}" in
             "prod")
               echo " Deploying to PRODUCTION"
